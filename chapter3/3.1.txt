@@ -1,0 +1,18 @@
+地址   值                寄存器        值
+0x100  0xFF             %rax          0x100
+0x104  0xAB             %rcx          0x1
+0x108  0x13             %rdx          0x3
+0x10C  0x11            
+
+操作数
+%rax                  寄存器里的值 ==> 0x100
+0x104                 Addr[0x104] ==> 0xAB
+$0x108                立即数       ==> 0x108
+(%rax)                Addr[%rax] ==> Addr[0x100] ==> 0xFF
+4(%rax)               Addr[4 + %rax] ==> Addr[0x104] ==> 0xAB
+9(%rax,%rdx)          Addr[9 + %rax + %rdx] ==> Addr[0x10C] ==> 0x11
+260(%rcx,%rdx)        Addr[260 + %rcx + %rdx] ==> Addr[0x108] ==> 0x13
+0xFC(,%rcx,4)         Addr[0xFC + %rcx * 4] ==> Addr[0x100] ==> 0xFF
+(%rax,%rdx,4)         Addr[%rax + 4 * %rdx]  ==> Addr[0x10C] ==> 0x11
+
+注意: 上面没有以0x开头的数字，都是以十进制表示的
