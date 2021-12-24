@@ -1,0 +1,13 @@
+地址   值                寄存器        值
+0x100  0xFF             %rax          0x100
+0x104  0xAB             %rcx          0x1
+0x108  0x13             %rdx          0x3
+0x10C  0x11            
+
+指令                               目的                值
+addq %rcx,(%rax)                   0x100             0xFF + 0x1
+subq %rdx,8(%rax)                  0x108             0x11 - 0x3
+imulq %16,(%rax,%rdx,8)            0x118             16 * 0x11
+incq 16(%rax)                      0x110             0x13 + 1
+decq %rax                          0x100             0xFF - 1
+subq %rdx,%rax                     0x100             0xFF - 0x3
