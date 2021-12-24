@@ -1,0 +1,37 @@
+long --> long
+movq (%rdi),%rax
+movq %rax,(%rsi)
+读8个字节，存8个字节
+
+
+char  --> int
+movsbl (%rdi),%eax
+movl %eax,(%rsi)
+将char转换为int存4字节
+
+
+char --> unsigned
+movsbl (%rdi),%eax
+movl %eax,(%rsi)
+将char转换为int存4字节
+
+unsigned char -->  long
+movzbl (%rdi),%eax
+movq %eax,(%rsi)
+读一个字节并拓展零，存8个字节
+
+
+int --> char
+movl (%rdi),%eax
+movb %al,(%rsi)
+读4个字节存低位字节
+
+unsigned --> unsigned char
+movl (%rdi),%eax
+movb %al,(%rsi)
+读4个字节存低位字节
+
+char --> short
+movsbw (%rdi),%ax
+movw %ax,(%rsi)
+读一个字节并符号拓展，存2个字节
