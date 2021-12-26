@@ -1,0 +1,24 @@
+跳转指令的目标等于他下一条指令的地址next加上跳转之后后面的偏移量x
+A.下面je指令的目标是什么？
+4003fa: 74 02         je XXXXXX
+4003fc: ff d0         callq *%rax
+je XXXXXX ==> next + x = 0x4003fc + 0x02
+
+B. 下面je指令的目标是什么？
+40042f: 74 f4         je XXXXXX
+400431: 5d            pop %rbp
+位宽为8,位模式为0xf4的补码表是的数字是-12
+je XXXXXX ==> next + x = 0x400431 - 12
+
+C. ja和pop指令的地址是多少
+XXXXXX: 77 02         ja 400547
+XXXXXX: 5d            pop %rbp
+不难看出 next + x = 0x400547 ==> next + 0x02 = 0x400547 
+==> next = 0x400547 - 0x02
+ja指令所在的地址为: next - 0x02 = 0x400547 - 0x02 - 0x02
+
+D.
+4005e8: e9 73 ff ff ff      jmpq XXXXXX
+4005ed: 90                  nop
+由于是小端表示法所以偏移量x = 0xffffff73 = -141
+所以跳转指令的目标等于 next + x = 0x5005ed - 141      
