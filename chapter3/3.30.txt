@@ -1,0 +1,34 @@
+threshold: 阈值，一旦超过这个值，就会跳转到默认分支
+label_min: 标号的最小值
+label_max: 标号的最大值
+offset: 用来加上label_min以让标号能跳转表寻址能从零开始
+我们能得到公式
+label_min + offset = 0
+从汇编代码 addq $1,%rdi我们可以看出offset等于1
+所以最小的标号为-1,接下来我们就可以求出最大标号
+label_min = -1
+threshold = 8  (从汇编代码cmpq $8, %rdi得出)
+label_max = label_min + threshold
+          = -1 + 8
+          = 7
+
+.L4
+  .quad .L9   -1
+  .quad .L5    0
+  .quad .L6    1
+  .quad .L7    2
+  .quad .L2    3
+  .quad .L7    4
+  .quad .L8    5
+  .quad .L2    6
+  .quad .L5    7
+
+
+从汇编代码
+cmpq $8,%rdi
+ja .L2
+我们可以直到.L2对于的就是默认分支，使用默认分支作为跳转目标的
+就是那些缺少的标号也就是标号2和6
+标号0和7有相同的目标.L5,标号2和4有相同的目标.L7
+
+
