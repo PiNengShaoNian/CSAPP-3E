@@ -1,0 +1,19 @@
+%rdx = 8 * i
+%rdx -= i = 7*i
+%rdx = 7*i + j
+%rax = 5 * j
+%rdi = i + 5 * j
+%rax = 8 * %rdi = Xq + 8 * (i + 5 * j)
+
+&Q[j][i] = Xq + 8 * %rdi
+         = Xq + 8 * (M * i + j)
+
+Q的行是N，列是M，所以
+M * i + j = i + 5 * j
+所以Q有5列，也就是M = 5
+
+&P[i][j] = Xq + 8 * %rdx
+         = Xq + 8 * (7i + j)
+P的行是N,列是M,所以
+N * i + j = 7 * i + j
+所以P有7列N = 7
