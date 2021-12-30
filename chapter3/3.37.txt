@@ -1,0 +1,6 @@
+表达式           类型             值             汇编代码
+S + 1            int*            Xs + 2
+S[3]             int             M[Xs + 6]
+&S[i]            int*            Xs + i * 2
+S[4*i+1]         int             M[Xs + 4 * i * 2 + 2]
+S + i - 5        int*            Xs + 2 * i - 5 * 2
