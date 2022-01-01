@@ -1,0 +1,19 @@
+A. struct P1 { int i; char c; int j; char d; };
+i    c    j    d    总共     对齐
+0    4    8    12    16      4
+
+B. struct p2 { int i; char c; char d; long j; };
+i    c    d    j   总共     对齐
+0    4    5    8    16       4
+
+C. struct p3 { short w[3]; char c[3]; };
+w    c  总共    对齐 
+0    6   10      2
+
+D. struct P4 { short w[5]; char *c[3]; };
+w  c   总共    对齐
+0  16  40       8
+
+E. struct P5 { struct P3 a[2]; struct P2 t; };
+a    t   总共   对齐
+0    24  40      8
