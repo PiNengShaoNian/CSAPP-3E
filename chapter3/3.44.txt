@@ -1,35 +1,19 @@
-struct {
-    char *a;
-    short b;
-    double c;
-    char d;
-    float e;
-    char f;
-    long g;
-    int h;
-} rec;
+A. struct P1 { int i; char c; int j; char d; };
+i    c    j    d    总共     对齐
+0    4    8    12    16      4
 
-A.
-字段   a   b  c    d    e    f     g      h     总共    对齐
-偏移量 0   8  16   24   28   32    40     48     56      8
+B. struct p2 { int i; char c; char d; long j; };
+i    c    d    j   总共     对齐
+0    4    5    8    16       4
 
-B.这个结构一共是56个字节长。结构的结尾必须填充4个字节来满足8字节对齐的
-要求
+C. struct p3 { short w[3]; char c[3]; };
+w    c  总共    对齐 
+0    6   10      2
 
-C.当所有的数据元素的长度都是2的幂时，一种行之有效的策略是按照大小
-的降序排列结构的元素，导致声明如下
-struct {
-    char *a;
-    double c;
-    long a;
-    float e;
-    int h;
-    short b;
-    char d;
-    char f;
-} rec;
-字段    a    c   a    e   h    b    d    f     总共   对齐  
-大小    8    8   8    4   4    2    1    1      36
-偏移量  0    8   16   24  28   32   34   35     40      8
+D. struct P4 { short w[5]; char *c[3]; };
+w  c   总共    对齐
+0  16  40       8
 
-
+E. struct P5 { struct P3 a[2]; struct P2 t; };
+a    t   总共   对齐
+0    24  40      8

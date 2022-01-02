@@ -1,0 +1,35 @@
+struct {
+    char *a;
+    short b;
+    double c;
+    char d;
+    float e;
+    char f;
+    long g;
+    int h;
+} rec;
+
+A.
+字段   a   b  c    d    e    f     g      h     总共    对齐
+偏移量 0   8  16   24   28   32    40     48     56      8
+
+B.这个结构一共是56个字节长。结构的结尾必须填充4个字节来满足8字节对齐的
+要求
+
+C.当所有的数据元素的长度都是2的幂时，一种行之有效的策略是按照大小
+的降序排列结构的元素，导致声明如下
+struct {
+    char *a;
+    double c;
+    long a;
+    float e;
+    int h;
+    short b;
+    char d;
+    char f;
+} rec;
+字段    a    c   a    e   h    b    d    f     总共   对齐  
+大小    8    8   8    4   4    2    1    1      36
+偏移量  0    8   16   24  28   32   34   35     40      8
+
+
