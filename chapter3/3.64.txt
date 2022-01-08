@@ -1,0 +1,40 @@
+A. &A[i][j][k] = A + L * (T * S * i + T * j + k);
+
+B.
+%rax = 2 * %rsi + %rsi 
+     = 3 * %rsi
+     = 3 * j
+
+%rax = 4 * %rax + %rsi
+     = 12 * j + j
+     = 13 * j
+
+%rsi = %rdi
+     = i
+
+%rsi = %rsi << 6
+     = 64 * %rsi
+     = 64 * i
+
+%rdi = %rdi + %rsi
+     = i + 64 * i
+     = 65 * i
+
+%rdi = %rdi + %rax
+     = 65 * i + 13 * j
+
+%rdx = %rdx + %rdi
+     = k + 65 * i + 13 * j
+
+%rax = A + 8 * %rdx
+     = A + 8 * (k + 65 * i + 13 * j)
+结合A答案的公式可以知道
+T * S = 65
+T = 13
+所以S = 5
+由最有%rax中存储的返回值sizeof(A)可以知道
+R * S * T * L= 3640，其中L=8
+所以R * S * T  = 455
+R = 7
+综上可以R = 7,T = 13, S = 5
+
