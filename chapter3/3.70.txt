@@ -1,0 +1,25 @@
+A. 下列字段的偏移量是多少(以字节为单位):
+e1.p    --->   0
+e1.y    --->   8
+e2.x    --->   0
+e2.next --->   8
+
+B. 这个结构总共需要多少个字节？
+16
+
+C. 编译器为proc产生下面的汇编代码：填写proc代码中缺失的表达式。
+proc:
+  movq 8(%rdi), %rax # %rax = *(%rdi + 8), %rax等于下一个elm的地址 
+  movq (%rax), %rdx  # %rdx = *(%rax), 将%rdx赋值为下一个元素的p或者x
+  movq (%rdx), %rdx  # %rdx = *(%rdx),对%rdx解引用，
+                     # 可见为p而不是x,所以%rdx = up->e2.next->e1.p
+  subq 8(%rax), %rdx # %rdx = up->e2.next->e1.p - *(%rax + 8),
+                     # %rax+8可以是y或者next的地址,考虑到他被当作
+                     # 有符号加法的操作数，所以*(%rax + 8)就是元素y
+                     # 可见*(%rax + 8)为up->e2.next->e1.y
+  movq %rdx, (%rdi)  # *(%rdi) = %rdx,给属性复制只有属性x满足条件
+  ret
+
+void proc (union ele *up) {
+    up->e2.x =  *(up->e2.next->.e1.p) - up->e2.next->e1.y
+}
