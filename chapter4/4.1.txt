@@ -1,0 +1,16 @@
+确定下面Y86-64的指令序列的字节编码
+.pos 0x100 # Start code at address 0x100
+    irmovq $15,%rbx
+    rrmovq %rbx,%rcx
+loop:
+    rmmovq %rcx,-3(%rbx)
+    addq %rbx,%rcx
+    jmp loop
+
+
+内存地址           指令            rA     rB     V/D          字节编码
+0x100        irmovq $15,%rbx      0xF    0x3     15      0x30F30f00000000000000
+0x10a        rrmovq %rbx,%rcx     0x3    0x1     -       0x2031
+0x10c        rmmovq %rcx,-3(%rbx) 0x1    0x3     -3      0x4013fdffffffffffffff
+0x116        addq %rbx,%rcx       0x3    0x1     -       0x6031
+0x118        jmp loop              -      -      -       0x700c01000000000000   
