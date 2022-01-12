@@ -1,0 +1,34 @@
+确定下列每个字节序列所编码的Y86-64的指令序列
+
+A.
+字节编码                   指令       rA      rB     V/D       指令序列             描述
+0x30f3fcffffffffffffff    irmovq     0xF    %rbx    -4      irmovq $-4,%rbx
+0x40630008000000000000    rmmovq     %rsi   %rbx    0x800   rmmovq %rsi,0x800(%rbx)
+00                                                                  halt
+
+B.
+address   字节编码                 指令       rA      rB     V/D       指令序列             描述
+0x200     0xa06f                  pushq      %rsi    0xF    -       pushq %rsi
+0x202     0x800c02000000000000    call                      0x20c   call 0x20c
+0x20b     00                      halt
+0x20c     0x30f30a000000000000    irmovq     0xF     %rbx   0xa     irmovq $0xa,%rbx
+0x216     90                      ret
+
+C.
+字节编码                    指令       rA      rB     V/D       指令序列             描述
+0x50540700000000000000     mrmovq     %rbp   %rsp    7       mrmovq 7(%rbp),%rsp
+0x10                       nop
+0xf0                       无效的指令编码
+0xb01f                     popq       %rcx                   popq %rcx
+
+D.
+address   字节编码                指令       rA      rB     V/D       指令序列             描述
+0x400     0x6113                 subq       %rcx   %rbx    -       subq %rcx,%rbx
+0x402     0x730004000000000000   je         -      -       0x400   je 0x400
+0x40b     00                     halt
+
+E.
+address   字节编码    指令       rA      rB     V/D       指令序列             描述
+0x500     0x6362     xorq       %rsi   %rdx    -       xorq %rsi,%rdx
+0x502     0xa0       pushq
+0x503     0xf0       无效的寄存器编号
