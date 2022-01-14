@@ -1,0 +1,20 @@
+阶段              通用                            具体
+            irmovq V,rB                   irmovq $128,%rsp
+
+取指        icode:ifun <--- M1[PC]        icode:ifun  <--- M1[0x16] = 3:0
+            rA:rB  <---  M1[PC + 1]       rA:rB  <--- M1[0x16 + 1] = f:%rsp
+            valC   <--- M8[PC + 2]        valC  <---  M8[0x16 + 2] = 128
+            valP   <--- PC + 10           valP  <--- 0x16 + 10 = 0x016 + 10
+
+译码
+
+执行        valE  <---  0 + valC          valE  <--- 0 + 128 = 128
+
+
+访存
+
+
+写回        R[rB]  <---  valE             R[%rsp]  <--- valE = 128
+
+
+更新PC      PC    <---  valP              PC  <--- valP = 0x20
