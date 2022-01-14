@@ -1,0 +1,20 @@
+阶段              通用                            具体
+            popq rA                            popq %rax
+
+取指        icode:ifun  <--- M1[PC]         icode:ifun  <--- M1[0x2c]  = 0xb0
+            rA:rB  <---  M1[PC + 1]         rA:rB  <---  M1[0x2c + 1] = %rax:f 
+            valP   <---  PC + 2             valP   <---  0x2c + 2
+
+译码        valA  <--- R[%rsp]              valA  <--- 120
+            valB  <--- R[%rsp]              valB  <--- 120
+
+执行        valE  <--- valB + 8             valE  <--- 120 + 8 = 128
+
+
+访存        valM  <--- M[valA]              valM <--- M[120] = 9 
+
+
+写回        R[%rsp]  <--- valE              R[%rsp] <--- 128
+            R[rA]  <--- valM                R[rA]   <--- 9
+
+更新PC      PC    <---  valP              PC  <--- valP = 0x2e
