@@ -1,0 +1,19 @@
+阶段              通用                            具体
+            call dest                            call 0x41
+
+取指        icode:ifun  <--- M1[PC]          icode:ifun <--- M1[0x37] = 8:0
+            valC  <---  M1[PC + 1]           valC  <---  M1[0x37 + 1] = 0x41 
+            valP   <---  PC + 9              valP  <--- PC + 9 = 0x37 + 9
+
+译码        valB  <--- R[%rsp]               valB  <--- R[%rsp] = 128
+
+
+执行        valE  <--- valB + (-8)           valE  <--- 128 - 8 = 120
+
+
+访存        M8[valE]  <--- valP              M8[120] <--- valP = 0x40 
+
+
+写回        R[%rsp]  <--- valE               R[%rsp] <--- 120
+
+更新PC      PC    <---  valC                 PC  <--- valC = 0x41
