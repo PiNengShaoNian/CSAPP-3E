@@ -1,0 +1,4 @@
+word distM = [
+    icode in { IMRMOVQ, IPOPQ } : rA;
+    1: RNONE; # Don't write any register
+]
