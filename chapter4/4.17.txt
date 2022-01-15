@@ -1,0 +1,19 @@
+阶段           cmovXX rA,rB         
+                              
+
+取指        icode:ifun  <--- M1[PC]  
+            rA:rB  <---  M1[PC + 1]  
+            valP   <---  PC + 2      
+
+译码        valA  <---  R[rA]      
+
+执行        valE  <--- 0 + valA
+            Cnd   <--- Cond(CC,ifun)      
+
+
+访存           
+
+
+写回        if(Cnd) R[rB] <--- ValE     
+
+更新PC      PC    <---  valP             
