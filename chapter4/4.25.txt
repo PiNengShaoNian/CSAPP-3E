@@ -1,0 +1,7 @@
+word mem_data = [
+    # Value from register
+    icode in { IRMMOVQ, IPUSHQ } : valA;
+    # Return PC
+    icode === ICALL : valP;
+    # Default: don't write anything
+]
