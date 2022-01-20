@@ -1,0 +1,10 @@
+这段代码非常类似于SEQ中相应的代码，除了我们还不能确定数据内存是否为这条
+指令产生一个错误信号
+
+# Determine status code for fetched instructions
+word f_stat = [
+    imem_error : SADR;
+    !instr_valid : SINS;
+    f_icode == IHALT : SHLT;
+    1 : SAOK;
+]
