@@ -1,0 +1,4 @@
+A. 不能当REG为%rsp是，压入栈的值为%rsp - 8
+
+B. movq REG,-8(%rsp)
+   subq $8,%rsp

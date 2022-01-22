@@ -1,0 +1,4 @@
+A. 不能当REG为%rsp时，弹出的值为%rsp + 8
+
+B. addq $8, %rsp
+   movq -8(%rsp),REG
