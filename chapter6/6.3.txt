@@ -1,0 +1,10 @@
+对这个问题的解答是对磁盘访问时间公式的直接应用。平均旋转时间(以ms为单位)为
+T(avg rotation) = 1/2 * T(max rotation) = 1/ 2 * (60s/15000RPM) * 100ms/s
+                ≈ 2ms
+平均传送时间为
+T(avg transfer) = (60s / 15000RPM) * 1 / 500(扇区/磁道) * 1000ms/s
+                ≈ 0.008ms
+总的来说，总的预计访问时间为
+T(access) = T(avg seek) + T(avg rotation) + T(avg transfer) 
+          = 8ms + 2ms + 0.008ms
+          ≈ 10ms
