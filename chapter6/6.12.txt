@@ -1,0 +1,7 @@
+E = 2,  B = 4, S = 8
+b = Math.log2(4) = 2
+s = Math.log2(8) = 3
+所以CO为两位，CI为3位，剩下的为CT
+
+12  11  10  9   8  7  6  5  4  3  2  1   0
+CT  CT  CT  CT CT CT CT  CT CI CI CI CO CO
