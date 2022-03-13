@@ -1,0 +1,4 @@
+T(avg seek) = 4ms
+T(avg rotation) = (1 / 2) * (1 / 15000RPM) * (60s / 1min) = 2ms
+T(avg transfer) = (1 / 15000RPM) * (1 / 800) * (60s / 1min) = 0.005ms
+T = T(avg seek) + T(avg rotation) + T(avg transfer) = 6.005ms
