@@ -1,0 +1,16 @@
+A.
+当标志位为0x45
+0    1   0   0   0   1   0  1   0   0   1   x    x
+CT  CT  CT  CT  CT  CT  CT  CT  CI  CI  CI  CO  CO
+当标志位为0x38
+0    0  1   1   1   0   0   0   0   0   1   x    x
+CT  CT  CT  CT  CT  CT  CT  CT  CI  CI  CI  CO  CO
+所以符合条件的地址为0x1238,0x1239,0x123A,0x123B
+0x08A4,0x08A5,0x08A6,0x08A7
+0x0704,0x0705,0x0706,0x0707
+
+B.
+1    0   0   1  0  0  0  1   1  1  0  x  x
+CT  CT  CT  CT CT CT CT  CT CI CI CI CO CO
+其中标志位只能为0x91
+所以符合条件的地址为0x1238,0x1239,0x123A,0x123B
