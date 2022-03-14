@@ -1,0 +1,19 @@
+A.
+12   11   10   9    8   7   6   5   4   3   2   1    0
+CT   CT   CT   CT  CT  CT  CT   CT  CT  CI  CI  CO  CO
+
+B.
+地址0x834
+0    1    0    0   0   0   0    1   1   0   1   0    0
+CT   CT   CT   CT  CT  CT  CT   CT  CT  CI  CI  CO  CO
+地址0x836
+0    1    0    0   0   0   0    1   1   0   1   1    0
+CT   CT   CT   CT  CT  CT  CT   CT  CT  CI  CI  CO  CO
+地址0xFFD
+0    1    1    1   1   1   1    1   1   1   1   0    1
+CT   CT   CT   CT  CT  CT  CT   CT  CT  CI  CI  CO  CO
+
+操作    地址       命中?         读出的值(或者未知)
+读      0x834     不命中            -              
+写      0x836      命中            未知 
+读      0xFFD      命中            0xC0
