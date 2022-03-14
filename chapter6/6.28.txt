@@ -1,0 +1,24 @@
+A.
+没有内存地址会命中第二组
+
+B.
+当标志位为0xC7
+ 1   1   0   0   0   1   1   1   1   0   0   x   x
+CT  CT  CT  CT  CT  CT  CT  CT  CI  CI  CI  CO  CO
+当标志位为0x05
+ 0   0   0   0   0   1   0   1   1   0   0   x   x
+CT  CT  CT  CT  CT  CT  CT  CT  CI  CI  CI  CO  CO
+所以符合条件的内存地址为0x18F0,0x18F1,0x18F2,0x18F3
+0x00B0,0x00B1,0x00B2,0x00B3
+
+C.
+当标志位为0x71
+ 0   1   1   1   0   0   0   1   1   0   1   x   x
+CT  CT  CT  CT  CT  CT  CT  CT  CI  CI  CI  CO  CO
+所以符合条件的内存地址为0x0E34,0x0E35,0x0E36,0x0E37
+
+D.
+当标志位为0xDE
+ 1   1   0   1   1   1   1   0   1   1   1   x   x
+CT  CT  CT  CT  CT  CT  CT  CT  CI  CI  CI  CO  CO
+所以符合条件的内存地址为0x1BDC,0x1BDD,0x1BDE,0x1BDF
