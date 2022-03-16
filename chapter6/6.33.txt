@@ -1,0 +1,6 @@
+                             	0	1	0	x	x
+CT	CT	CT	CT	CT	CT	CT	CT	CI	CI	CI	CO	CO
+其中标志位为0xBC(0b1011 1100)或者0xB6(0b1011 0110)
+所以满足条件的8个内存地址为
+0x1788,0x1789,0x178A,0x178B
+0x16C8,0x16C9,0x16CA,0x16CB
