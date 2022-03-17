@@ -1,7 +1,9 @@
 每个块的大小为32子节，缓存大小为2048个子节，所以一共有64个块
 一个块可以放下两个point_color,整个缓存可以放下128个point_color
 读取point_color时的缓存映射关系为
-square[0][] ~ square[7][]    <===>  square[8][] ~ square[15][]
+square[0][] ~ square[3][]    <===>   square[8][] ~ square[11][]
+square[4][] ~ square[7][]    <===>   square[11][] ~ square[15][]
+
 
 由于是列优先遍历，可以看到每一轮循环的第一次读都会不命中，不过每一轮循环中只有读取第一个
 元素会发生不命中，后续的3次读都会命中
