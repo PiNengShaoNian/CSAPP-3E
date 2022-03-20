@@ -1,0 +1,7 @@
+A. gcc p.o libx.a
+
+B. gcc p.o libx.a liby.a
+
+C. gcc p.o libx.a liby.a libx.a
+
+要注意区分存档文件和目标文件，目标文件将整个添加到E，并不会像存档文件一样遍历。
