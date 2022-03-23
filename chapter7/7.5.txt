@@ -1,0 +1,17 @@
+这道题是测试你对链接器重定位PC相对引用的理解。给定
+ADDR(s) = ADDR(.text) = 0x4004d0
+和
+ADDR(r.symbol) = ADDR(swap) = 0x4004e8
+
+使用图7-10中的算法，链接器首先计算引用的运行时地址:
+refaddr = ADDR(s) + r.offset
+        = 0x4004d0 + 0xa
+        = 0x4004da
+
+然后修改此引用：
+*refptr = (unsigned) (ADDR(r.symbol) + r.addend + refaddr)
+        = (unsigned) (0x4004e8       + (-4)     + 0x4004da )
+        = (unsigned) (0xa)
+
+由此，得到的可执行文件中，对swap的PC相对引用的值为0xa:
+4004d9:  e8 0a 00 00 00            callq  4004e8 <swap>
