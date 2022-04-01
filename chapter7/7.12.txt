@@ -1,0 +1,7 @@
+A.
+refaddr = ADDR(.text) + r.offset = 0x4004e0 + 0xa = 0x4004ea
+refptr = (unsigned)(ADDR(r.symbol) + r.addend - refaddr) = 0x4004f8 + (-4) - 0x4004ea = 0xa
+
+B.
+refaddr = 0x4004d0 + 0xa = 0x4004da
+refptr = 0x400500 + (-4) - 0x4004da = 0x22
