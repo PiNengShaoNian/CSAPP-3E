@@ -1,0 +1,8 @@
+
+            -------->printf("hello\n")-->printf("hello\n")
+            |
+        ------------>printf("hello\n")-->printf("hello\n")
+        |
+-------------------------------->printf("hello\n")
+
+会打印5行
