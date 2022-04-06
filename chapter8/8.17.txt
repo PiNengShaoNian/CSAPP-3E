@@ -1,0 +1,10 @@
+假设子进程正常退出；构成拓扑排序即可，有三种情况：
+
+A.
+Hello 1 Bye 0 2 Bye
+
+B.
+Hello 1 0 Bye 2 Bye
+
+C.
+Hello 0 1 Bye 2 bye

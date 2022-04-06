@@ -2,7 +2,7 @@
                  --------->-------->------->exit
                  |                         |
                  |                         |
-      Hello      |        0                ▽    0      Bye   
+      Hello      |        0                ▽    2      Bye   
  --------a------->-------->---------------->------>------>----->
 main   printf   fork     printf    waitpid                     exit
 
