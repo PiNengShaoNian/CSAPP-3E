@@ -1,0 +1,7 @@
+如果不传递指向相同块的指针当作参数，函数
+rio_readn
+rio_writen
+rio_readinitb
+rio_readlineb
+rio_readnb
+都是隐式可重入的
