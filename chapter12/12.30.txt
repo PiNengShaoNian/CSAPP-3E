@@ -1,0 +1,10 @@
+A.
+thread1: a&b, a&c
+thread2: b&c
+thread3: a&b
+
+B.
+thread2 and thread3
+
+C.
+keep same order P(a),P(b),P(c) in every thread
